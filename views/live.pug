@@ -1,0 +1,17 @@
+extends layout
+block content
+
+  .businesses
+    #live
+      a(href='/admin/businesses') Saved History
+      table.table.table-bordered
+        thead
+          tr
+            th REGISTRATION NO
+            th BUSINESS NAME
+            th NATURE OF BUSINESS
+            th STATE
+            th DATE REGISTERED
+        tbody(id="table")
+      
+      script(src="/socket.io/socket.io.js")

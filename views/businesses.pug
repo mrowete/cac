@@ -1,0 +1,34 @@
+extends layout
+
+include mixins/_pagination
+
+block content
+  .businesses
+    //- button.open-btn Open Live Coming Data
+    //- div(id="businesses-wrapper")
+    //- script(src="/socket.io/socket.io.js")
+    
+    a(href='/admin') Live Data
+    table.table.table-bordered
+      thead
+        tr
+          th REGISTRATION NO
+          th BUSINESS NAME
+          th NATURE OF BUSINESS
+          th STATE
+          th DATE
+      tbody(id="myTable")
+        each business in businesses
+          tr
+            td
+              a(href=`/admin/business/${business.businessName}/${business._id}`)=business.regNumber
+            td
+              a(href=`/admin/business/${business.businessName}/${business._id}`)=business.businessName
+            td
+              a(href=`/admin/business/${business.businessName}/${business._id}`)=business.natureOfBusiness
+            td
+              a(href=`/admin/business/${business.businessName}/${business._id}`)=business.state
+            td
+              a(href=`/admin/business/${business.businessName}/${business._id}`)=business.dateOfReg
+    +pagination(page, pages, total)  
+      
